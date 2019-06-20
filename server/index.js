@@ -12,7 +12,7 @@ app.use(logger('dev'));
 
 app.use('/', router);
 app.use(express.static(dir + '/public'));
-
+app.use('/api/items/:id', express.static(dir + '/public'));
 
 app.listen(port, () => {
   console.log(`App is listening on port ${port}`)

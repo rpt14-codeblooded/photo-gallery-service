@@ -8,7 +8,13 @@ mongoose.connect('mongodb://localhost/gallery', {useNewUrlParser: true})
 })
 
 const pictureSchema = new mongoose.Schema({
-  url: String
+  url: String,
+  id: Number
+})
+
+const idSchema = new mongoose.Schema({
+  id: Number,
+  currentId: Number
 })
 
 const Picture = mongoose.model('Picture', pictureSchema);
