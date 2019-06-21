@@ -27,8 +27,8 @@ const create = (url, cb) => {
   })
 }
 
-const get = (id, cb) => {
-  Picture.find({id}, (err, res) => {
+const get = (cb) => {
+  Picture.find((err, res) => {
     err ? cb(err) : cb(null, res);
   })
 }

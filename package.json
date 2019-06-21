@@ -32,6 +32,7 @@
     "node-uuid": "^1.4.8",
     "nodemon": "^1.19.1",
     "pug": "^2.0.4",
+    "pure-react-carousel": "^1.20.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "style-loader": "^0.23.1",
