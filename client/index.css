@@ -1,5 +1,5 @@
 .container {
-  width: 34%;
+  width: 500px;
   height: 92%;
   display: flex;
   justify-content: center;
@@ -9,6 +9,8 @@
   flex-direction: column;
 }
 
+.gallery-item-main-container {
+}
 
 .gallery-display {
   width: 100%;
@@ -24,9 +26,10 @@
 }
 
 .slide {
-  border: black solid 1px;
+  border: lightgrey solid 1px;
   width: 75px;
   height: 75px;
+  border-radius: 3px;
   /* display: flex;
   flex-direction: row;
   justify-content: center;
@@ -59,4 +62,12 @@
   border: red solid 1px;
   width: 10px;
   height: 10px;
+}
+
+.back {
+  padding-right: 8px;
+}
+
+.nxt {
+  padding-left: 8px;
 }

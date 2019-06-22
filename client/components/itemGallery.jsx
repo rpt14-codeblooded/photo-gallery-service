@@ -21,11 +21,11 @@ function ItemGallery(props) {
         naturalSlideHeight={30}
         totalSlides={gallery.length}
       >
-        <ButtonBack className="back btn">Back</ButtonBack>
+        <ButtonBack className="back btn"></ButtonBack>
         <Slider className="slider">
           {gallery}
         </Slider>
-        <ButtonNext className="nxt btn">Next</ButtonNext>
+        <ButtonNext className="nxt btn"></ButtonNext>
       </CarouselProvider>
     </div>
 
