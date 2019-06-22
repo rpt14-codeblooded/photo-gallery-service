@@ -8,22 +8,25 @@ function ItemGallery(props) {
   var counter = 0;
   var gallery = props.galleryPictures.map(ele => {
     counter++;
-    return <Slide key={counter} index={counter}>{<Item url={ele}/>}</Slide>
+    return <div className="div-slide">
+      <Slide key={counter} index={counter}>{<Item url={ele}/>}</Slide>
+      </div>
   })
   return (
     <div className="gallery-ul-container">
       <CarouselProvider
-        visibleSlides={6}
+      className="carousel"
+        visibleSlides={2}
         step={6}
-        naturalSlideWidth={200}
-        naturalSlideHeight={125}
+        naturalSlideWidth={65}
+        naturalSlideHeight={65}
         totalSlides={gallery.length}
       >
-        <Slider>
+        <ButtonBack className="back btn">Back</ButtonBack>
+        <Slider className="slider">
           {gallery}
         </Slider>
-        <ButtonBack>Back</ButtonBack>
-        <ButtonNext>Next</ButtonNext>
+        <ButtonNext className="nxt btn">Next</ButtonNext>
       </CarouselProvider>
     </div>
 
