@@ -21,9 +21,12 @@
 
 }
 
-/* .gallery-ul-container {
-  border: magenta solid 1px;
-} */
+.carousel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
 .div-slide {
   border: orange solid 1px;
@@ -31,7 +34,7 @@
 
 .slider {
   border: purple solid 1px;
-  width: 80%;
+  width: 96%;
   height: 80px;
 }
 
@@ -42,8 +45,8 @@
 }
 
 .gallery-item {
-  height: 65px;
-  width: 65px;
+  height: 50px;
+  width: 50px;
   border: solid green 1px;
 }
 

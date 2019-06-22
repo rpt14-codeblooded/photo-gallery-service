@@ -16,10 +16,10 @@ function ItemGallery(props) {
     <div className="gallery-ul-container">
       <CarouselProvider
       className="carousel"
-        visibleSlides={2}
+        visibleSlides={6}
         step={6}
-        naturalSlideWidth={65}
-        naturalSlideHeight={65}
+        naturalSlideWidth={30}
+        naturalSlideHeight={30}
         totalSlides={gallery.length}
       >
         <ButtonBack className="back btn">Back</ButtonBack>
