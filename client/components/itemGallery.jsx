@@ -8,9 +8,8 @@ function ItemGallery(props) {
   var counter = 0;
   var gallery = props.galleryPictures.map(ele => {
     counter++;
-    return <div className="div-slide">
-      <Slide key={counter} index={counter}>{<Item url={ele}/>}</Slide>
-      </div>
+    return <Slide key={counter} index={counter}>{<Item url={ele}/>}</Slide>
+
   })
   return (
     <div className="gallery-ul-container">
