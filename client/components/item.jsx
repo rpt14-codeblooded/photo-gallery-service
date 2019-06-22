@@ -2,7 +2,7 @@ import React from 'react';
 
 function Item(props) {
   return (
-    <div>
+    <div className="gallery-item-container">
       <img className="gallery-item" src={props.url}></img>
     </div>
   )
