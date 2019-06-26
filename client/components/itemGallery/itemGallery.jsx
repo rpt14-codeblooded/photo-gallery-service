@@ -21,7 +21,8 @@ const StyledCarousel = styled(CarouselProvider)`
 const StyledSlider = styled(Slider)`
   width: 450px;
   height: 80px;
-`
+`;
+
 const StyledBackBtn = styled(ButtonBack)`
   width: 20px;
   height: 20px;
@@ -30,7 +31,7 @@ const StyledBackBtn = styled(ButtonBack)`
   background-image: url(https://rpt14-front-end-capstone-manuel.s3.us-east-2.amazonaws.com/ebay-arrow-left.jpg);
   border: none;
   margin-right: 3px;
-`
+`;
 
 const StyledNxtBtn = styled(ButtonNext)`
   width: 20px;
@@ -45,7 +46,7 @@ function ItemGallery(props) {
   var counter = 0;
   var gallery = props.galleryPictures.map(ele => {
     counter++;
-    return <StyledSlide className="slide" key={counter} index={counter}>{<Item url={ele}/>}</StyledSlide>
+    return <StyledSlide key={counter} index={counter}>{<Item url={ele}/>}</StyledSlide>
 
   })
   return (

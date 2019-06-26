@@ -48,7 +48,7 @@ class App extends React.Component {
       for (let picture in pictures) {
         if (pictures[picture].id === id) {
           mainPicture.push(pictures[picture].url)
-          galleryPictures.push(pictures[picture].url);
+          galleryPictures.splice(0, 0, pictures[picture].url);
         } else {
           pictures[picture].id % randomNum === 0 ? galleryPictures.push(pictures[picture].url) : null;
         }
