@@ -12,11 +12,14 @@
     "react-dev": "webpack -d --watch",
     "test": "jest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "styled-components": "^4.3.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "aws-sdk": "^2.479.0",
     "babel-loader": "^8.0.6",
     "body-parser": "^1.19.0",
     "chai": "^4.2.0",
@@ -28,8 +31,10 @@
     "mocha": "^6.1.4",
     "mongoose": "^5.6.0",
     "morgan": "^1.9.1",
+    "node-uuid": "^1.4.8",
     "nodemon": "^1.19.1",
     "pug": "^2.0.4",
+    "pure-react-carousel": "^1.20.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "style-loader": "^0.23.1",
