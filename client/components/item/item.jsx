@@ -5,7 +5,7 @@ function Item(props) {
     <div className="gallery-item-container">
       <img className="gallery-item" src={props.url}></img>
     </div>
-  )
+  )//
 }
 
 export default Item;

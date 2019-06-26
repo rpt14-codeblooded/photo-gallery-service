@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from './item.jsx';
+import Item from '../item/item.jsx'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -12,7 +12,7 @@ function ItemGallery(props) {
 
   })
   return (
-    <div className="gallery-ul-container">
+    <div>
       <CarouselProvider
       className="carousel"
         visibleSlides={6}

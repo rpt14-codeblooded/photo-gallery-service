@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Item from './components/item.jsx';
 import $ from 'jquery';
-import ItemGallery from './components/itemGallery.jsx';
-import MainItem from './components/mainItem.jsx';
+import ItemGallery from './components/itemGallery/itemGallery.jsx';
+import MainItem from './components/mainItem/mainItem.jsx';
 
 class App extends React.Component {
     constructor(props) {
