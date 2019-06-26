@@ -46,7 +46,7 @@ function ItemGallery(props) {
   var counter = 0;
   var gallery = props.galleryPictures.map(ele => {
     counter++;
-    return <StyledSlide key={counter} index={counter}>{<Item url={ele}/>}</StyledSlide>
+    return <StyledSlide key={counter} index={counter}>{<Item changeOnLeave={props.changeOnLeave} changeOnEnter={props.changeOnEnter} url={ele}/>}</StyledSlide>
 
   })
   return (

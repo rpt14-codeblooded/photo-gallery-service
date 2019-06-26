@@ -11,8 +11,11 @@ class App extends React.Component {
       super(props);
       this.state = {
         mainPicture: null,
-        galleryPictures: null
+        galleryPictures: null,
+        originalPicture: null
       };
+      this.changeMainPicOnEnter = this.changeMainPicOnEnter.bind(this);
+      this.changeMainPicOnLeave = this.changeMainPicOnLeave.bind(this);
     }
 
     componentDidMount() {
@@ -23,7 +26,8 @@ class App extends React.Component {
         var galleryPictures = pictures.galleryPictures;
         this.setState({
           mainPicture,
-          galleryPictures
+          galleryPictures,
+          originalPicture: mainPicture
         })
       })
     }
@@ -39,10 +43,21 @@ class App extends React.Component {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+    changeMainPicOnEnter(e) {
+      this.setState({
+        mainPicture: e.target.currentSrc
+      })
+    }
+
+    changeMainPicOnLeave(e) {
+      this.setState({
+        mainPicture: this.state.originalPicture
+      })
+    }
+
     setPictures(pictures) {
       var id = this.getId();
       var randomNum = this.getRandomNum(2, 2);
-      console.log(randomNum);
       let mainPicture = [];
       let galleryPictures = [];
       for (let picture in pictures) {
@@ -81,7 +96,7 @@ class App extends React.Component {
           <MainItem url = {this.state.mainPicture}/>
         </div >
         <StyledGalleryDisplay>
-          {this.state.galleryPictures && this.state.galleryPictures.length > 0 ? < ItemGallery galleryPictures = {this.state.galleryPictures}/> : null}
+          {this.state.galleryPictures && this.state.galleryPictures.length > 0 ? < ItemGallery changeOnLeave={this.changeMainPicOnLeave} changeOnEnter={this.changeMainPicOnEnter} galleryPictures={this.state.galleryPictures}/> : null}
         </StyledGalleryDisplay >
       </StyledContainer>
         )

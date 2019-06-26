@@ -11,7 +11,7 @@ function Item(props) {
   `;
   return (
     <div>
-      <GalleryItem src={props.url}></GalleryItem>
+      <GalleryItem onMouseEnter={(e) => props.changeOnEnter(e)} onMouseLeave={(e) => props.changeOnLeave(e)} src={props.url}></GalleryItem>
     </div>
   )//
 }
