@@ -12,7 +12,9 @@
     "react-dev": "webpack -d --watch",
     "test": "jest"
   },
-  "dependencies": {},
+  "dependencies": {
+    "styled-components": "^4.3.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/preset-env": "^7.4.5",

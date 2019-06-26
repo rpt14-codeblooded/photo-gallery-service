@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import $ from 'jquery';
 import ItemGallery from './components/itemGallery/itemGallery.jsx';
 import MainItem from './components/mainItem/mainItem.jsx';
+import styled from 'styled-components'
+
 
 class App extends React.Component {
     constructor(props) {
@@ -59,15 +60,30 @@ class App extends React.Component {
     }
 
     render() {
+      const StyledContainer = styled.div`
+        width: 500px;
+        height: 92%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        flex-direction: column;
+      `;
+
+      const StyledGalleryDisplay = styled.div`
+        width: 100%;
+        height: 12%;
+      `
+
       return (
-      <div className="container">
-        <div className = "main-display" >
+      <StyledContainer>
+        <div>
           <MainItem url = {this.state.mainPicture}/>
         </div >
-        <div className="gallery-display">
+        <StyledGalleryDisplay>
           {this.state.galleryPictures && this.state.galleryPictures.length > 0 ? < ItemGallery galleryPictures = {this.state.galleryPictures}/> : null}
-        </div >
-      </div>
+        </StyledGalleryDisplay >
+      </StyledContainer>
         )
       }
     }
