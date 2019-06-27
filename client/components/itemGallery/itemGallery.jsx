@@ -24,6 +24,7 @@ const StyledSlider = styled(Slider)`
 `;
 
 const StyledBackBtn = styled(ButtonBack)`
+  outline: none;
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
@@ -34,6 +35,7 @@ const StyledBackBtn = styled(ButtonBack)`
 `;
 
 const StyledNxtBtn = styled(ButtonNext)`
+  outline: none;
   width: 20px;
   height: 20px;
   background-repeat: no-repeat;
@@ -46,11 +48,10 @@ function ItemGallery(props) {
   var counter = 0;
   var gallery = props.galleryPictures.map(ele => {
     counter++;
-    return <StyledSlide key={counter} index={counter}>{<Item changeOnLeave={props.changeOnLeave} changeOnEnter={props.changeOnEnter} url={ele}/>}</StyledSlide>
+    return <StyledSlide onClick={(e) => {props.setNewMain(e)}}onMouseEnter={props.onMouseOver} key={counter} index={counter}>{<Item url={ele}/>}</StyledSlide>
 
   })
   return (
-    <div>
       <StyledCarousel
         visibleSlides={6}
         step={6}
@@ -64,7 +65,6 @@ function ItemGallery(props) {
         </StyledSlider>
         <StyledNxtBtn></StyledNxtBtn>
       </StyledCarousel>
-    </div>
 
   )
 }

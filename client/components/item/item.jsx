@@ -10,9 +10,7 @@ function Item(props) {
     padding-left: 4px;
   `;
   return (
-    <div>
-      <GalleryItem onMouseEnter={(e) => props.changeOnEnter(e)} onMouseLeave={(e) => props.changeOnLeave(e)} src={props.url}></GalleryItem>
-    </div>
+      <GalleryItem src={props.url}></GalleryItem>
   )//
 }
 

@@ -14,8 +14,6 @@ class App extends React.Component {
         galleryPictures: null,
         originalPicture: null
       };
-      this.changeMainPicOnEnter = this.changeMainPicOnEnter.bind(this);
-      this.changeMainPicOnLeave = this.changeMainPicOnLeave.bind(this);
     }
 
     componentDidMount() {
@@ -43,25 +41,6 @@ class App extends React.Component {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    changeMainPicOnEnter(e) {
-      e.persist();
-      console.log(e, e.target.nodeName);
-      var picUrl = this.state.mainPicture
-      if (e.target.nodeName === "LI") {
-        picUrl = e.target.childNodes[0].childNodes[0].childNodes[0].currentSrc
-      } else {
-        picUrl = e.target.currentSrc;
-      }
-      this.setState({
-        mainPicture: picUrl
-      })
-    }
-
-    changeMainPicOnLeave(e) {
-      // this.setState({
-      //   mainPicture: this.state.originalPicture
-      // })
-    }
 
     setPictures(pictures) {
       var id = this.getId();
@@ -80,6 +59,19 @@ class App extends React.Component {
         mainPicture,
         galleryPictures
       };
+    }
+
+    onMouseOver(e) {
+      e.persist();
+      // console.log(e, e.target.nodeName);
+    }
+
+    setNewMainPicture(e) {
+      e.persist();
+      console.log(e.target.currentSrc)
+      this.setState({
+        mainPicture: e.target.currentSrc
+      })
     }
 
     render() {
@@ -104,7 +96,7 @@ class App extends React.Component {
           <MainItem url = {this.state.mainPicture}/>
         </div >
         <StyledGalleryDisplay >
-          {this.state.galleryPictures && this.state.galleryPictures.length > 0 ? < ItemGallery changeOnLeave={this.changeMainPicOnLeave} changeOnEnter={this.changeMainPicOnEnter} galleryPictures={this.state.galleryPictures}/> : null}
+          {this.state.galleryPictures && this.state.galleryPictures.length > 0 ? < ItemGallery setNewMain={this.setNewMainPicture.bind(this)} onMouseOver={this.onMouseOver.bind(this)} galleryPictures={this.state.galleryPictures}/> : null}
         </StyledGalleryDisplay >
       </StyledContainer>
         )
