@@ -23,7 +23,17 @@ const StyledSlider = styled(Slider)`
   height: 80px;
 `;
 
-const StyledBackBtn = styled(ButtonBack)`
+
+
+
+function ItemGallery(props) {
+  var counter = 0;
+  var gallery = props.galleryPictures.map(ele => {
+    counter++;
+    return <StyledSlide onClick={(e) => {props.setNewMain(e)}} onMouseEnter={props.onMouseOver} key={counter} index={counter}>{<Item counter={counter} url={ele}/>}</StyledSlide>
+
+  })
+  const StyledBackBtn = styled(ButtonBack)`
   outline: none;
   width: 20px;
   height: 20px;
@@ -32,9 +42,11 @@ const StyledBackBtn = styled(ButtonBack)`
   background-image: url(https://rpt14-front-end-capstone-manuel.s3.us-east-2.amazonaws.com/ebay-arrow-left.jpg);
   border: none;
   margin-right: 3px;
+  &:disabled {
+    background-image: url(https://rpt14-front-end-capstone-manuel.s3.us-east-2.amazonaws.com/ebay-arrow-shaded-left.jpg);
+  }
 `;
-
-const StyledNxtBtn = styled(ButtonNext)`
+  const StyledNxtBtn = styled(ButtonNext)`
   outline: none;
   width: 20px;
   height: 20px;
@@ -43,14 +55,10 @@ const StyledNxtBtn = styled(ButtonNext)`
   background-image: url(https://rpt14-front-end-capstone-manuel.s3.us-east-2.amazonaws.com/ebay-arrow-right.jpg);
   border: none;
   margin-left: 3px;
+  &:disabled {
+    background-image: url(https://rpt14-front-end-capstone-manuel.s3.us-east-2.amazonaws.com/ebay-arrow-shaded-right.jpg);
+  }
 `
-function ItemGallery(props) {
-  var counter = 0;
-  var gallery = props.galleryPictures.map(ele => {
-    counter++;
-    return <StyledSlide onClick={(e) => {props.setNewMain(e)}} onMouseEnter={props.onMouseOver} key={counter} index={counter}>{<Item counter={counter} url={ele}/>}</StyledSlide>
-
-  })
   return (
       <StyledCarousel
         currentSlide={props.clickedSlideIndex}

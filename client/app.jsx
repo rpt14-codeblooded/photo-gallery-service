@@ -26,7 +26,7 @@ class App extends React.Component {
           mainPicture,
           galleryPictures,
           originalPicture: mainPicture,
-          clickedSlideIndex: 0
+          clickedSlideIndex: 0,
         })
       })
     }
@@ -107,7 +107,11 @@ class App extends React.Component {
           <MainItem url = {this.state.mainPicture}/>
         </div >
         <StyledGalleryDisplay >
-          {this.state.galleryPictures && this.state.galleryPictures.length > 0 ? < ItemGallery clickedSlideIndex={this.state.clickedSlideIndex} setNewMain={this.setNewMainPicture.bind(this)} onMouseOver={this.onMouseOver.bind(this)} galleryPictures={this.state.galleryPictures}/> : null}
+          {this.state.galleryPictures && this.state.galleryPictures.length > 0 ?
+          < ItemGallery clickedSlideIndex={this.state.clickedSlideIndex}
+          setNewMain={this.setNewMainPicture.bind(this)} onMouseOver={this.onMouseOver.bind(this)}
+          galleryPictures={this.state.galleryPictures}/>
+          : null}
         </StyledGalleryDisplay >
       </StyledContainer>
         )
