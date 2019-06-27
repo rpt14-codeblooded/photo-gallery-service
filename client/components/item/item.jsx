@@ -10,7 +10,7 @@ function Item(props) {
     padding-left: 4px;
   `;
   return (
-      <GalleryItem src={props.url}></GalleryItem>
+      <GalleryItem data-counter={props.counter} src={props.url}></GalleryItem>
   )//
 }
 

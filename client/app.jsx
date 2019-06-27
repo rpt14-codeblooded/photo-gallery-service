@@ -25,7 +25,8 @@ class App extends React.Component {
         this.setState({
           mainPicture,
           galleryPictures,
-          originalPicture: mainPicture
+          originalPicture: mainPicture,
+          clickedSlideIndex: 0
         })
       })
     }
@@ -68,9 +69,19 @@ class App extends React.Component {
 
     setNewMainPicture(e) {
       e.persist();
-      console.log(e.target.currentSrc)
+      console.log(e);
+      var counter = e.target.dataset.counter;
+      if (counter % 6 == 0) {
+        counter = counter - 6;
+      } else if (counter > 6) {
+        counter = counter - (counter % 6)
+      } else {
+        counter = 0;
+      }
+      console.log(counter);
       this.setState({
-        mainPicture: e.target.currentSrc
+        mainPicture: e.target.currentSrc,
+        clickedSlideIndex: counter
       })
     }
 
@@ -96,7 +107,7 @@ class App extends React.Component {
           <MainItem url = {this.state.mainPicture}/>
         </div >
         <StyledGalleryDisplay >
-          {this.state.galleryPictures && this.state.galleryPictures.length > 0 ? < ItemGallery setNewMain={this.setNewMainPicture.bind(this)} onMouseOver={this.onMouseOver.bind(this)} galleryPictures={this.state.galleryPictures}/> : null}
+          {this.state.galleryPictures && this.state.galleryPictures.length > 0 ? < ItemGallery clickedSlideIndex={this.state.clickedSlideIndex} setNewMain={this.setNewMainPicture.bind(this)} onMouseOver={this.onMouseOver.bind(this)} galleryPictures={this.state.galleryPictures}/> : null}
         </StyledGalleryDisplay >
       </StyledContainer>
         )

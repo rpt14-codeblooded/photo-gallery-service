@@ -48,11 +48,12 @@ function ItemGallery(props) {
   var counter = 0;
   var gallery = props.galleryPictures.map(ele => {
     counter++;
-    return <StyledSlide onClick={(e) => {props.setNewMain(e)}}onMouseEnter={props.onMouseOver} key={counter} index={counter}>{<Item url={ele}/>}</StyledSlide>
+    return <StyledSlide onClick={(e) => {props.setNewMain(e)}} onMouseEnter={props.onMouseOver} key={counter} index={counter}>{<Item counter={counter} url={ele}/>}</StyledSlide>
 
   })
   return (
       <StyledCarousel
+        currentSlide={props.clickedSlideIndex}
         visibleSlides={6}
         step={6}
         naturalSlideWidth={30}
