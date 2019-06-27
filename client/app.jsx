@@ -44,15 +44,23 @@ class App extends React.Component {
     }
 
     changeMainPicOnEnter(e) {
+      e.persist();
+      console.log(e, e.target.nodeName);
+      var picUrl = this.state.mainPicture
+      if (e.target.nodeName === "LI") {
+        picUrl = e.target.childNodes[0].childNodes[0].childNodes[0].currentSrc
+      } else {
+        picUrl = e.target.currentSrc;
+      }
       this.setState({
-        mainPicture: e.target.currentSrc
+        mainPicture: picUrl
       })
     }
 
     changeMainPicOnLeave(e) {
-      this.setState({
-        mainPicture: this.state.originalPicture
-      })
+      // this.setState({
+      //   mainPicture: this.state.originalPicture
+      // })
     }
 
     setPictures(pictures) {
@@ -95,7 +103,7 @@ class App extends React.Component {
         <div>
           <MainItem url = {this.state.mainPicture}/>
         </div >
-        <StyledGalleryDisplay>
+        <StyledGalleryDisplay >
           {this.state.galleryPictures && this.state.galleryPictures.length > 0 ? < ItemGallery changeOnLeave={this.changeMainPicOnLeave} changeOnEnter={this.changeMainPicOnEnter} galleryPictures={this.state.galleryPictures}/> : null}
         </StyledGalleryDisplay >
       </StyledContainer>
