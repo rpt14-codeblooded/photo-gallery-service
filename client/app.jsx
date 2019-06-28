@@ -64,6 +64,7 @@ class App extends React.Component {
 
     onMouseOver(e) {
       e.persist();
+      console.log(e.target);
     }
 
     setNewMainPicture(e) {
