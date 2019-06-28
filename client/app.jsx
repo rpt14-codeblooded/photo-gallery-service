@@ -64,12 +64,10 @@ class App extends React.Component {
 
     onMouseOver(e) {
       e.persist();
-      // console.log(e, e.target.nodeName);
     }
 
     setNewMainPicture(e) {
       e.persist();
-      console.log(e);
       var counter = e.target.dataset.counter;
       if (counter % 6 == 0) {
         counter = counter - 6;
@@ -78,7 +76,6 @@ class App extends React.Component {
       } else {
         counter = 0;
       }
-      console.log(counter);
       this.setState({
         mainPicture: e.target.currentSrc,
         clickedSlideIndex: counter
