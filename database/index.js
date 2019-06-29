@@ -3,9 +3,6 @@ mongoose.connect('mongodb://localhost/gallery', {useNewUrlParser: true})
 .then(() => {
   console.log('DB connected');
 })
-.catch((err) => {
-  console.log('DB error: ', err);
-})
 
 const pictureSchema = new mongoose.Schema({
   url: {

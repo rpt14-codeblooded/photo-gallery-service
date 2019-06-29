@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 const db = require('../database/index.js');
 
 describe("Database", () => {
