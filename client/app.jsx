@@ -62,11 +62,6 @@ class App extends React.Component {
       };
     }
 
-    onMouseOver(e) {
-      e.persist();
-      console.log(e.target);
-    }
-
     setNewMainPicture(e) {
       e.persist();
       var counter = e.target.dataset.counter;
@@ -107,7 +102,7 @@ class App extends React.Component {
         <StyledGalleryDisplay >
           {this.state.galleryPictures && this.state.galleryPictures.length > 0 ?
           < ItemGallery clickedSlideIndex={this.state.clickedSlideIndex}
-          setNewMain={this.setNewMainPicture.bind(this)} onMouseOver={this.onMouseOver.bind(this)}
+          setNewMain={this.setNewMainPicture.bind(this)}
           galleryPictures={this.state.galleryPictures}/>
           : null}
         </StyledGalleryDisplay >

@@ -66,7 +66,6 @@ class ItemGallery extends React.Component {
     var gallery = this.props.galleryPictures.map(ele => {
       counter++;
       return <StyledSlide onClick={(e) => {this.props.setNewMain(e)}}
-        onMouseEnter={this.props.onMouseOver}
         key={counter}
         index={counter}>
         {<Item counter={counter} url={ele}/>}
