@@ -11,7 +11,8 @@ class App extends React.Component {
       super(props);
       this.state = {
         mainPicture: null,
-        galleryPictures: null
+        galleryPictures: null,
+        originalPicture: null
       };
     }
 
@@ -23,7 +24,9 @@ class App extends React.Component {
         var galleryPictures = pictures.galleryPictures;
         this.setState({
           mainPicture,
-          galleryPictures
+          galleryPictures,
+          originalPicture: mainPicture,
+          clickedSlideIndex: 0,
         })
       })
     }
@@ -39,16 +42,16 @@ class App extends React.Component {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+
     setPictures(pictures) {
       var id = this.getId();
       var randomNum = this.getRandomNum(2, 2);
-      console.log(randomNum);
       let mainPicture = [];
       let galleryPictures = [];
       for (let picture in pictures) {
         if (pictures[picture].id === id) {
           mainPicture.push(pictures[picture].url)
-          galleryPictures.push(pictures[picture].url);
+          galleryPictures.splice(0, 0, pictures[picture].url);
         } else {
           pictures[picture].id % randomNum === 0 ? galleryPictures.push(pictures[picture].url) : null;
         }
@@ -57,6 +60,22 @@ class App extends React.Component {
         mainPicture,
         galleryPictures
       };
+    }
+
+    setNewMainPicture(e) {
+      e.persist();
+      var counter = e.target.dataset.counter;
+      if (counter % 6 == 0) {
+        counter = counter - 6;
+      } else if (counter > 6) {
+        counter = counter - (counter % 6)
+      } else {
+        counter = 0;
+      }
+      this.setState({
+        mainPicture: e.target.currentSrc,
+        clickedSlideIndex: counter
+      })
     }
 
     render() {
@@ -80,8 +99,12 @@ class App extends React.Component {
         <div>
           <MainItem url = {this.state.mainPicture}/>
         </div >
-        <StyledGalleryDisplay>
-          {this.state.galleryPictures && this.state.galleryPictures.length > 0 ? < ItemGallery galleryPictures = {this.state.galleryPictures}/> : null}
+        <StyledGalleryDisplay >
+          {this.state.galleryPictures && this.state.galleryPictures.length > 0 ?
+          < ItemGallery clickedSlideIndex={this.state.clickedSlideIndex}
+          setNewMain={this.setNewMainPicture.bind(this)}
+          galleryPictures={this.state.galleryPictures}/>
+          : null}
         </StyledGalleryDisplay >
       </StyledContainer>
         )

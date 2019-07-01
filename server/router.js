@@ -4,9 +4,11 @@ const db = require('../database/index.js');
 
 router.get('/pictures', (req, res) => {
   db.get((err, doc) => {
-    console.log(doc);
     err ? res.status(400).send() : res.status(200).send(doc);
   })
 })
 
+router.get('/', (req, res) => {
+  res.redirect('/items/1')
+})
 module.exports = router;

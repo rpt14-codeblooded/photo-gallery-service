@@ -3,9 +3,6 @@ mongoose.connect('mongodb://localhost/gallery', {useNewUrlParser: true})
 .then(() => {
   console.log('DB connected');
 })
-.catch((err) => {
-  console.log('DB error: ', err);
-})
 
 const pictureSchema = new mongoose.Schema({
   url: {
@@ -33,6 +30,12 @@ const get = (cb) => {
   })
 }
 
+const deleteOne = (url, cb) => {
+  Picture.deleteOne({url}, (err, data) => {
+    err ? cb(err) : cb(null, data);
+  })
+}
+
 //only run once
 const populateDb = () => {
   var fileNum = '';
@@ -43,4 +46,4 @@ const populateDb = () => {
     newPic.save();
   }
 }
-module.exports = {create, populateDb, get};
+module.exports = {create, populateDb, get, deleteOne};
