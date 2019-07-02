@@ -18,7 +18,7 @@ class App extends React.Component {
 
     componentDidMount() {
       //gets current api path
-      $.get('/pictures', (pictures) => {
+      $.get('http://localhost:3003/pictures', (pictures) => {
         pictures = this.setPictures(pictures);
         var mainPicture = pictures.mainPicture;
         var galleryPictures = pictures.galleryPictures;
@@ -32,7 +32,10 @@ class App extends React.Component {
     }
 
     getId() {
-      const path = window.location.pathname;
+      var path = window.location.pathname;
+      if (path === '/') {
+        path = 'items/1'
+      }
       const regex = /[0-9]/g;
       const id = path.match(regex).join('');
       return id;
