@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import ItemGallery from './components/itemGallery/itemGallery.jsx';
-import MainItem from './components/mainItem/mainItem.jsx';
+import ItemGallery from './components/itemGallery.jsx';
+import MainItem from './components/mainItem.jsx';
 import styled from 'styled-components'
 
 
@@ -34,7 +33,7 @@ class App extends React.Component {
     getId() {
       var path = window.location.pathname;
       if (path === '/') {
-        path = 'items/1'
+        path = '1'
       }
       const regex = /[0-9]/g;
       const id = path.match(regex).join('');
@@ -114,4 +113,4 @@ class App extends React.Component {
       }
     }
 
-    ReactDOM.render( <App/> , document.getElementById('root'));
+    export default App;

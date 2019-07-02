@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use('/', router);
 app.use(express.static(dir + '/public'));
-app.use('/items/:id', express.static(dir + '/public'));
+app.use('/:id', express.static(dir + '/public'));
 
 
 module.exports = app;

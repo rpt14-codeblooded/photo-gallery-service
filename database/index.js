@@ -27,7 +27,8 @@ const create = (url, cb) => {
 const get = (cb) => {
   Picture.find((err, res) => {
     err ? cb(err) : cb(null, res);
-  })
+  }).limit(100);
+
 }
 
 const deleteOne = (url, cb) => {
