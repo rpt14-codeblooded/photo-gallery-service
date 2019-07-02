@@ -95,6 +95,10 @@ class App extends React.Component {
         width: 100%;
         height: 12%;
       `
+      //used in testing
+      StyledContainer.displayName = 'StyledContainer';
+      MainItem.displayName = 'MainItem';
+      StyledGalleryDisplay.displayName = 'StyledGalleryDisplay';
 
       return (
       <StyledContainer>

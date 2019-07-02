@@ -16,6 +16,9 @@ const GalleryItemMain = styled.img`
 
 
 function MainItem(props) {
+  //for testing
+  GalleryItemMain.displayName = 'GalleryItemMain';
+  GalleryItemMainContainer.displayName = 'GalleryItemMainContainer'
   return (
     <GalleryItemMainContainer>
       <GalleryItemMain src={props.url}></GalleryItemMain>

@@ -9,6 +9,8 @@ function Item(props) {
     padding-top: 5px;
     padding-left: 4px;
   `;
+
+  GalleryItem.displayName = 'GalleryItem';
   return (
       <GalleryItem data-counter={props.counter} src={props.url}></GalleryItem>
   )//
