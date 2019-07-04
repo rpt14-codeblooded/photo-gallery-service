@@ -28,6 +28,8 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 
 ## Development
 
+Seed the directory : $ node seeder.js (**only run once**)
+
 ### Installing Dependencies
 
 From within the root directory:

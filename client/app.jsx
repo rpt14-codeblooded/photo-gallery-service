@@ -1,11 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import $ from 'jquery';
-import ItemGallery from './components/itemGallery/itemGallery.jsx';
-import MainItem from './components/mainItem/mainItem.jsx';
+import ItemGallery from './components/itemGallery.jsx';
+import MainItem from './components/mainItem.jsx';
 import styled from 'styled-components'
 
+const StyledContainer = styled.div`
+width: 500px;
+height: 92%;
+display: flex;
+justify-content: center;
+align-items: center;
+align-content: center;
+flex-direction: column;
+`;
 
+const StyledGalleryDisplay = styled.div`
+width: 100%;
+height: 12%;
+`
 class App extends React.Component {
     constructor(props) {
       super(props);
@@ -18,7 +30,7 @@ class App extends React.Component {
 
     componentDidMount() {
       //gets current api path
-      $.get('/pictures', (pictures) => {
+      $.get('http://localhost:3003/pictures', (pictures) => {
         pictures = this.setPictures(pictures);
         var mainPicture = pictures.mainPicture;
         var galleryPictures = pictures.galleryPictures;
@@ -32,7 +44,10 @@ class App extends React.Component {
     }
 
     getId() {
-      const path = window.location.pathname;
+      var path = window.location.pathname;
+      if (path === '/') {
+        path = '1'
+      }
       const regex = /[0-9]/g;
       const id = path.match(regex).join('');
       return id;
@@ -79,21 +94,12 @@ class App extends React.Component {
     }
 
     render() {
-      const StyledContainer = styled.div`
-        width: 500px;
-        height: 92%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        flex-direction: column;
-      `;
 
-      const StyledGalleryDisplay = styled.div`
-        width: 100%;
-        height: 12%;
-      `
-
+      //used in testing
+      StyledContainer.displayName = 'StyledContainer';
+      MainItem.displayName = 'MainItem';
+      StyledGalleryDisplay.displayName = 'StyledGalleryDisplay';
+//
       return (
       <StyledContainer>
         <div>
@@ -111,4 +117,4 @@ class App extends React.Component {
       }
     }
 
-    ReactDOM.render( <App/> , document.getElementById('root'));
+    export default App;

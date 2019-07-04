@@ -9,6 +9,7 @@ router.get('/pictures', (req, res) => {
 })
 
 router.get('/', (req, res) => {
-  res.redirect('/items/1')
+  res.redirect('/1')
 })
+
 module.exports = router;
