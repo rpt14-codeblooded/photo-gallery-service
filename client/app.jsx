@@ -4,7 +4,20 @@ import ItemGallery from './components/itemGallery.jsx';
 import MainItem from './components/mainItem.jsx';
 import styled from 'styled-components'
 
+const StyledContainer = styled.div`
+width: 500px;
+height: 92%;
+display: flex;
+justify-content: center;
+align-items: center;
+align-content: center;
+flex-direction: column;
+`;
 
+const StyledGalleryDisplay = styled.div`
+width: 100%;
+height: 12%;
+`
 class App extends React.Component {
     constructor(props) {
       super(props);
@@ -81,25 +94,12 @@ class App extends React.Component {
     }
 
     render() {
-      const StyledContainer = styled.div`
-        width: 500px;
-        height: 92%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-content: center;
-        flex-direction: column;
-      `;
 
-      const StyledGalleryDisplay = styled.div`
-        width: 100%;
-        height: 12%;
-      `
       //used in testing
       StyledContainer.displayName = 'StyledContainer';
       MainItem.displayName = 'MainItem';
       StyledGalleryDisplay.displayName = 'StyledGalleryDisplay';
-
+//
       return (
       <StyledContainer>
         <div>
