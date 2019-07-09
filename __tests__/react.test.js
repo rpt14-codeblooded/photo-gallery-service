@@ -4,11 +4,10 @@ import App from '../client/app.jsx';
 import Item from '../client/components/item.jsx'
 import ItemGallery from '../client/components/itemGallery.jsx';
 import MainItem from '../client/components/mainItem.jsx';
-import toJson from 'enzyme-to-json'
 import 'jest-styled-components'
 
 
-xdescribe('<App/>', () => {
+describe('<App/>', () => {
   test('renders without crashing', () => {
      shallow(<App />);
    });
@@ -19,7 +18,7 @@ xdescribe('<App/>', () => {
    })
 });
 
-xdescribe('<Item/>', () => {
+describe('<Item/>', () => {
   test('renders without crashing', () => {
     shallow(<Item />)
   });
@@ -30,7 +29,7 @@ xdescribe('<Item/>', () => {
 })
 
 
-xdescribe('<ItemGallery/>', () => {
+describe('<ItemGallery/>', () => {
   let dummydata;
   let wrapper;
 
@@ -68,13 +67,13 @@ describe('<Slide>', () => {
   })
 
   test('it works', () => {
-    const container = wrapper.find('StyledSlide');
+    const container = wrapper.find('StyledSlide').first();
     expect(container).toMatchSnapshot()
   })
 })
 
 
-xdescribe('<MainItem/>', () => {
+describe('<MainItem/>', () => {
   let wrapper;
   beforeEach(() => {
     wrapper = shallow(<MainItem/>);
