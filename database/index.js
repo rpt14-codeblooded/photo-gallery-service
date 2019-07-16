@@ -42,7 +42,7 @@ const populateDb = () => {
   var fileNum = '';
   for (var i = 1; i <= 100; i++) {
     fileNum = i;
-    var url = `https://rpt14-front-end-capstone-manuel.s3.us-east-2.amazonaws.com/File${fileNum}.jpg`
+    var url = `https://rpt14-front-end-capstone-manuel.s3.us-east-2.amazonaws.com/Images/File${fileNum}.jpg`
     var newPic = new Picture({url, id: i});
     newPic.save();
   }
