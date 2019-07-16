@@ -60,7 +60,7 @@ class App extends React.Component {
 
     setPictures(pictures) {
       var id = this.getId();
-      var randomNum = this.getRandomNum(2, 2);
+      var randomNum = this.getRandomNum(2, 20);
       let mainPicture = [];
       let galleryPictures = [];
       for (let picture in pictures) {
@@ -83,7 +83,7 @@ class App extends React.Component {
       if (counter % 6 == 0) {
         counter = counter - 6;
       } else if (counter > 6) {
-        counter = counter - (counter % 6)
+        counter = counter - (counter % 6);
       } else {
         counter = 0;
       }
