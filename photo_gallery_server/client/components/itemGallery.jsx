@@ -1,5 +1,5 @@
 import React from 'react';
-import Item from './item.jsx'
+import Item from './item.jsx.js.js'
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import styled from 'styled-components'
