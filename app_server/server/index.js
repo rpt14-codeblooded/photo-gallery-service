@@ -7,10 +7,12 @@ const path = require('path');
 const router = require('./router');
 var cors = require('cors')
 const mongoose = require('mongoose');
+const db = require('../database/index.js');
 
-mongoose.connect('mongodb://localhost/gallery', {useNewUrlParser: true})
+mongoose.connect('mongodb://database/docker_test', {useNewUrlParser: true})
 .then(() => {
   console.log('DB connected');
+  db.populateDb();
 })
 
 const dir = path.parse(__dirname).dir;
