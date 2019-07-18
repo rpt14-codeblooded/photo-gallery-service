@@ -1,0 +1,3 @@
+node_modules
+database/fakeDataGenerator.js
+client/dist/bundle.js

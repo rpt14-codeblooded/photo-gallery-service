@@ -2,3 +2,4 @@ node_modules
 .DS_Store
 coverage/.DS_Store
 app_server/node_modules
+product_details_server/node_modules
