@@ -9,10 +9,13 @@ var cors = require('cors')
 const mongoose = require('mongoose');
 const db = require('../database/index.js');
 
-mongoose.connect('mongodb://database/docker_test', {useNewUrlParser: true})
+mongoose.connect(host='mongodb://database/pictures', {useNewUrlParser: true})
 .then(() => {
   console.log('DB connected');
   db.populateDb();
+})
+.catch((e) => {
+  console.log(e);
 })
 
 const dir = path.parse(__dirname).dir;
