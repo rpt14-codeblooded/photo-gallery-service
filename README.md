@@ -19,6 +19,8 @@
 
 > Some usage instructions
 
+*** Navigate to server/index.js -- on line 12, change the host string to either your own mongo db (in localhost or in a remote).
+
 ## Requirements
 
 An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
